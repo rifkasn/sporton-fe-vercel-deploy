@@ -26,7 +26,7 @@ const Header = () => {
           <FiSearch size={24} />
           <div className="relative">
             <FiShoppingBag size={24} />
-            <div className="bg-primary rounded-full w-3.5 h-3.5 absolute -top-1 -right-1 text-[10px] text-white text-center">
+            <div className="bg-primary rounded-full h-3.5 w-3.5 absolute -top-1 -right-1 text-[10px] text-white text-center">
               3
             </div>
           </div>
