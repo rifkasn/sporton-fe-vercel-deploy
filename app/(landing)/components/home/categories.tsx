@@ -42,7 +42,7 @@ const CategoriesSection = () => {
       <div className="grid grid-cols-6 gap-12 mt-8">
         {categoryList.map((category, index) => (
           <div
-            className="rounded-lg bg-gradient-to-r from-[#F1F1F1] to-[#F7F7F7] w-full aspect-square flex justify-center"
+            className="rounded-lg bg-linear-to-r from-[#F1F1F1] to-[#F7F7F7] w-full aspect-square flex justify-center"
             key={index}
           >
             <div className="self-center">
@@ -51,7 +51,7 @@ const CategoriesSection = () => {
                 width={86}
                 height="86"
                 alt={category.name}
-                className="mb-[10px]"
+                className="mb-2.5"
               />
               <div className="text-primary font-medium text-xl text-center">
                 {category.name}
