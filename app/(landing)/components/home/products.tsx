@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "../ui/button";
 import { FiPlus } from "react-icons/fi";
+import priceFormatter from "@/app/utils/price-formatter";
 
 const productList = [
   {
@@ -56,7 +57,7 @@ const productList = [
 
 const ProductsSection = () => {
   return (
-    <section id="products-section" className="container mx-auto mt-32">
+    <section id="products-section" className="container mx-auto mt-32 mb-52">
       <h2 className="font-bold italic text-4xl text-center mb-11">
         <span className="text-primary">OUR </span>PRODUCTS
       </h2>

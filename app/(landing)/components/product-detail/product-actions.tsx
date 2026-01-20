@@ -1,57 +1,56 @@
 "use client";
 
-import { FiCheckCircle, FiCreditCard } from "react-icons/fi";
-import CardWithHeader from "../ui/card-with-header";
-import FileUpload from "../ui/file-upload";
-import priceFormatter from "@/app/utils/price-formatter";
+import {
+  FiArrowRight,
+  FiChevronDown,
+  FiChevronUp,
+  FiShoppingBag,
+} from "react-icons/fi";
 import Button from "../ui/button";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const PaymentSteps = () => {
+const ProductActions = () => {
   const { push } = useRouter();
+  const [qty, setQty] = useState(1);
 
-  const uploadAndConfirm = () => {
-    push("/order-status/123123123");
-  };
+  const checkout = () => {};
 
   return (
-    <CardWithHeader title="Payment Steps">
-      <div className="p-5">
-        <ol className="list-decimal text-xs pl-2 flex flex-col gap-4 mb-5">
-          <li>
-            Transfer the total amount of <b>Rp. 1.035.000</b> to your preferred
-            bank account listed under 'Payment Options' (BCA, Mandiri, or BTPN).
-          </li>
-          <li>
-            After completing the transfer, <b>keep the payment receipt</b> or a
-            screenshot of the transfer confirmation. This will be needed for the
-            next step.
-          </li>
-          <li>
-            Upload the payment receipt/screenshot using the{" "}
-            <b>'Upload Receipt & Confirm'</b> button below to validate your
-            transaction.
-          </li>
-        </ol>
-        <FileUpload />
-      </div>
-
-      <div className="border-t border-gray-200 p-4">
-        <div className="flex justify-between font-semibold">
-          <div className="text-sm">Total</div>
-          <div className="text-primary text-xs">{priceFormatter(45000)}</div>
+    <div className="flex gap-5">
+      <div className="border border-gray-500 inline-flex w-fit min-w-20.5">
+        <div className="aspect-square text-xl font-medium border-r border-gray-500 flex justify-center items-center">
+          <span>{qty}</span>
         </div>
-        <Button
-          variant="dark"
-          className="w-full mt-4"
-          onClick={uploadAndConfirm}
-        >
-          <FiCheckCircle />
-          Upload Receipt & Confirm
-        </Button>
+        <div className="flex flex-col">
+          <button
+            className="border-b border-gray-500 cursor-pointer h-1/2 aspect-square flex items-center justify-center"
+            onClick={() => setQty(qty + 1)}
+          >
+            <FiChevronUp />
+          </button>
+          <button
+            className="cursor-pointer h-1/2 aspect-square flex items-center justify-center"
+            onClick={() => setQty(qty > 1 ? qty - 1 : qty)}
+          >
+            <FiChevronDown />
+          </button>
+        </div>
       </div>
-    </CardWithHeader>
+      <Button className="px-20 w-full">
+        <FiShoppingBag size={24} />
+        Add to Cart
+      </Button>
+      <Button
+        variant="dark"
+        className="px-20 w-full"
+        onClick={() => push("/checkout")}
+      >
+        Checkout Now
+        <FiArrowRight size={24} />
+      </Button>
+    </div>
   );
 };
 
-export default PaymentSteps;
+export default ProductActions;
