@@ -2,8 +2,8 @@
 
 import Button from "@/app/(landing)/components/ui/button";
 import { FiPlus } from "react-icons/fi";
-import CategoryTable from ",,/,,/components/categories/CategoryTable";
-import CategoryModal from ",,/,,/components/categories/CategoryModal";
+import CategoryTable from "../../components/categories/category-table";
+import CategoryModal from "../../components/categories/category-modal";
 import { useState } from "react";
 
 const CategoryManagement = () => {
