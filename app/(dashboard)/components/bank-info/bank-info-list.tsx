@@ -3,7 +3,7 @@ import { FiCreditCard, FiEdit2, FiTrash2 } from "react-icons/fi";
 
 type TBankInfoListProps = {
   banks: Bank[];
-  onEdit: (Bank: bank) => void;
+  onEdit: (bank: Bank) => void;
   onDelete: (id: string) => void;
 };
 
@@ -11,7 +11,7 @@ const BankInfoList = ({ banks, onEdit, onDelete}:
   TBankInfoListProps) => {
   return (
     <div className="grid grid-cols-3 gap-8">
-      {bankData.map((data) => (
+      {banks.map((data) => (
         <div 
           className="bg-white rounded-lg border border-gray-200" key={data._id}>
           <div className="flex justify-between p-5">
