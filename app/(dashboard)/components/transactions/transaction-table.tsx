@@ -28,11 +28,11 @@ const transactionData = [
 
 type TTransactionTableProps = {
   onViewDetails: (transaction: Transaction) => void;
-   transactions: Transaction[];
+  transactions: Transaction[];
 };
 
-const TransactionTable = ({ 
-  onViewDetails, 
+const TransactionTable = ({
+  onViewDetails,
   transactions,
 }: TTransactionTableProps) => {
   const getStatusColor = (status: string) => {
@@ -65,7 +65,8 @@ const TransactionTable = ({
               key={data._id}
               className="border-b border-gray-200 last:border-b-0"
             >
-              {new Date(data.createdAt).toLocaleDateString("id-ID", {
+              <td className="px-6 py-4 font-medium">
+                {new Date(data.createdAt).toLocaleDateString("id-ID", {
                   day: "numeric",
                   month: "short",
                   year: "numeric",
