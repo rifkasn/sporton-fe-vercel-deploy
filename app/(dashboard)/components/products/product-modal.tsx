@@ -29,11 +29,12 @@ const ProductModal = ({
   onSuccess,
   product,
 }: TProductModalProps) => {
-
-  const [categories, setCategories] = useState<Category []>([]);
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-   const [formData, setFormData] = useState<ProductFormData>({
+  const [formData, setFormData] = useState<ProductFormData>({
     name: "",
     price: 0,
     stock: 0,
@@ -141,13 +142,14 @@ const ProductModal = ({
   }, []);
 
   return (
-    <Modal 
-    isOpen={isOpen} 
-    onClose={onClose} 
-    title={isEditMode ? "Edit Product" : "Add New Product"}>
-    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-      <div className="flex gap-7">
-        <div className="min-w-50">
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      title={isEditMode ? "Edit Product" : "Add New Product"}
+    >
+      <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+        <div className="flex gap-7">
+          <div className="min-w-50">
             <ImageUploadPreview
               label="Product Image"
               value={imagePreview}
@@ -162,7 +164,7 @@ const ProductModal = ({
               <label htmlFor="productName">Product Name</label>
               <input
                 type="text"
-               id="name"
+                id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
@@ -195,20 +197,20 @@ const ProductModal = ({
             </div>
             <div className="input-group-admin">
               <label htmlFor="category">Category</label>
-              <select 
-              name="category" 
-              id="category"
-              value={formData.categoryId}
-              onChange={handleChange}
+              <select
+                name="categoryId"
+                id="categoryId"
+                value={formData.categoryId}
+                onChange={handleChange}
               >
                 <option value="" disabled>
                   Select Category
                 </option>
-               {categories.map((category) => (
+                {categories.map((category) => (
                   <option value={category._id} key={category._id}>
                     {category.name}
                   </option>
-                ))}              
+                ))}
               </select>
             </div>
           </div>
@@ -224,11 +226,11 @@ const ProductModal = ({
             onChange={handleChange}
           ></textarea>
         </div>
-        <Button 
-        className="ml-auto mt-3 rounded-lg"
-         onClick={handleSubmit}
-         disabled={isSubmitting}
-         type="submit"
+        <Button
+          className="ml-auto mt-3 rounded-lg"
+          onClick={handleSubmit}
+          disabled={isSubmitting}
+          type="submit"
         >
           {isEditMode ? "Update Product" : "Create Product"}
         </Button>
