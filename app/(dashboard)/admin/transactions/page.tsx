@@ -68,10 +68,10 @@ const TransactionManagement = () => {
                 </div>
             </div>
             <TransactionTable
-                transactions={transactions} 
+                transactions={transaction} 
                 onViewDetails={handleViewDetails} />
             <TransactionModal 
-                transactions={transactions}
+                transaction={selectedTransaction}
                 onStatusChange={handleStatusChange}
                 isOpen={isModalOpen} 
                 onClose={handleCloseModal} />
