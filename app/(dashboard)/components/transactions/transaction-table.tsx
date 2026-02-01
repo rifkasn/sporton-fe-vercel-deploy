@@ -32,7 +32,7 @@ type TTransactionTableProps = {
 };
 
 const TransactionTable = ({ 
-  onViewDetails 
+  onViewDetails, 
   transactions,
 }: TTransactionTableProps) => {
   const getStatusColor = (status: string) => {

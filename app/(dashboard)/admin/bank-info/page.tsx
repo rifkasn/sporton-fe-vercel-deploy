@@ -40,7 +40,7 @@ const BankInfoManagement = () => {
   };
 
   const handlDeletConfirm = async () => {
-    if {!bankToDeleteId} return;
+    if (!bankToDeleteId) return;
 
     try {
         await deleteBank(bankToDeleteId);
