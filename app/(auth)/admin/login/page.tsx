@@ -30,9 +30,10 @@ const LoginPage = () => {
       }
     } catch (err: unknown) {
       setErrorMessage(
-        err instanceof Error ?
-        err.message || "Something went wrong, please try again letter.",
-      );
+        err instanceof Error
+        ? err.message || "Something went wrong, please try again later."
+        : "Something went wrong, please try again later."
+    );
       console.error("Login error", err);
     } finally {
       setIsLoading(false);
