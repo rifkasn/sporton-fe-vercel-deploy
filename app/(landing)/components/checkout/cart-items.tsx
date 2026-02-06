@@ -25,7 +25,7 @@ const CartItems = ({ handlePayment }: TCartItems) => {
   return (
     <CardWithHeader title="Cart Items">
       <div className="flex flex-col justify-between h-[calc(100%-70px)]">
-        <div className="overflow-auto max-h-[300px] ">
+        <div className="overflow-auto max-h-75 ">
           {items.map((item) => (
             <div
               className="border-b border-gray-200 p-4 flex gap-3"

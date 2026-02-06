@@ -27,6 +27,10 @@ const BankInfoManagement = () => {
     }
   };
 
+  const reloadBanks = () => {
+    fetchBanks();
+  };
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedBank(null);
@@ -50,7 +54,7 @@ const BankInfoManagement = () => {
       toast.success("Bank info deleted succesfully");
       setBankToDeleteId("");
       setIsDeleteModalOpen(false);
-      fetchBanks();
+      reloadBanks();
     } catch (error) {
       console.error("Failed to delete bank info");
       toast.error("Failed to delete bank info ");
@@ -58,7 +62,15 @@ const BankInfoManagement = () => {
   };
 
   useEffect(() => {
-    fetchBanks();
+    const loadBanks = async () => {
+      try {
+        const data = await getAllBanks();
+        setBanks(data);
+      } catch (error) {
+        console.error("Failed to fetch bank data", error);
+      }
+    };
+    loadBanks();
   }, []);
 
   return (
@@ -78,7 +90,7 @@ const BankInfoManagement = () => {
       <BankInfoList banks={banks} onEdit={handlEdit} onDelete={handleDelete} />
       <BankInfoModal
         isOpen={isModalOpen}
-        onSuccess={fetchBanks}
+        onSuccess={reloadBanks}
         onClose={handleCloseModal}
         bank={selectedBank}
       />

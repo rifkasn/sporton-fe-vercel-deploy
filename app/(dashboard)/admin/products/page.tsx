@@ -53,7 +53,11 @@ const ProductManagement = () => {
   };
 
   useEffect(() => {
-    fetchProducts();
+    const loadProducts = async () => {
+      await fetchProducts();
+    };
+
+    loadProducts();
   }, []);
 
   const handleCloseModal = () => {
