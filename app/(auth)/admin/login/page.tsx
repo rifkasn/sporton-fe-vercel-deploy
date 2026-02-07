@@ -80,6 +80,8 @@ const LoginPage = () => {
             name="password"
             placeholder="••••••••••••••••••••"
             className="rounded-lg!"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <Button className="w-full rounded-lg! mb-8" onClick={handleLogin}>
